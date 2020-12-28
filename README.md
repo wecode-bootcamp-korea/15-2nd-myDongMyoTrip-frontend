@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# My Dongmyo Trip
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br><br>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ⛩ My Dongmyo Trip ( 마이동묘트립 )
 
-### `npm start`
+- [마이리얼트립] https://www.myrealtrip.com/
+- 기업 소개: 마이리얼트립은 여행을 떠나기 위해 필요한 모든 것을 쉽고, 빠르게 검색하고 예약할 수 있는 국내 최고의 자유여행 플랫폼입니다. 항공권, 숙박, 에어텔 상품을 비롯하여 전세계 680여개 도시 20,000여개의 현지 투어&티켓 상품을 제공하고 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 👨‍👩‍👧‍👦 팀원
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+힙스터의 성지 동묘 앞에서 위벤저스 결성!
 
-### `npm test`
+- Front-end: 김해인(PM), 이하영, 안미현
+- Back-end: 우혁준, 이주형
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📅 개발 기간
 
-### `npm run build`
+- 기간: 2020.12.28 ~ 2021.01.08 (11일)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧑‍💻 적용 기술
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Front-end: React.js, React-router, Styled-Components
+- Back-end: Django, Python, MySQL, jwt, bcrypt, AWS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 💁‍♀️ 구현 기능
 
-### `npm run eject`
+## 🎥 영상
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[클로닝 동영상](https://youtu.be/r2SD8_ePyOI)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💿 개인 역할
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> front-end
+> `김해인` > `이하영` > `안미현`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> back-end
+> `우혁준` > `이주형`
 
-## Learn More
+## 💰 소감 및 후기
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 김해인:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 이하영:
 
-### Code Splitting
+- 안미현:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- 우혁준:
 
-### Analyzing the Bundle Size
+- 이주형:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 💎 레퍼런스
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 이 프로젝트는 [MyRealTrip](https://www.myrealtrip.com/) 사이트를 참조하여 학습목적으로 만들었습니다.
+- 실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
+- 이 프로젝트에서 사용하고 있는 사진 일부분은 위코드에서 구매한 것 이므로 해당 프로젝트 외부인이 사용할 수 없습니다.
