@@ -53,7 +53,6 @@ export default Nav;
 
 const NavBar = styled.nav`
   background-color: transparent;
-
   border-bottom: 1px solid ${({ theme }) => theme.Color.grey[200]};
 `;
 
@@ -96,7 +95,6 @@ const SearchBar = styled.div`
     top: 50%;
     left: 16px;
     transform: translateY(-50%);
-
     color: ${({ theme }) => theme.Color.grey[500]};
   }
 
@@ -104,7 +102,6 @@ const SearchBar = styled.div`
     width: 100%;
     height: 100%;
     padding: 0 16px 0 48px;
-
     background-color: ${({ theme }) => theme.Color.grey[100]};
     border: 0;
     border-radius: 4px;
@@ -137,23 +134,8 @@ const List = styled.ul`
     }
   }
 
-  &.global {
-    color: ${({ theme }) => theme.Color.grey[600]};
-  }
-
-  &.local {
-    color: ${({ theme }) => theme.Color.grey[800]};
-    font-weight: 500;
-    margin-bottom: 10px;
-
-    li {
-      margin: 0 20px;
-    }
-  }
-
   li {
     margin: 0 10px;
-
     font-size: ${({ theme }) => theme.fontSize.medium};
 
     &:first-child {
@@ -170,6 +152,5 @@ const Profile = styled.img`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-
   border: 1px solid ${({ theme }) => theme.Color.grey[300]};
 `;
