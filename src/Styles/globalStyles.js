@@ -1,3 +1,8 @@
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+
+const GlobalStyle = createGlobalStyle`
+ ${reset}
 * {
   box-sizing: border-box;
 }
@@ -89,6 +94,7 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -103,19 +109,27 @@ nav,
 section {
   display: block;
 }
+
 body {
   top: 0;
   left: 0;
-  line-height: 1;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.2;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -123,6 +137,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -137,3 +152,11 @@ h6 {
   margin: 0;
   padding: 0;
 }
+  
+a {
+  text-decoration: none;
+}
+
+`;
+
+export default GlobalStyle;
