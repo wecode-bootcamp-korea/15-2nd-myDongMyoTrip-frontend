@@ -1,7 +1,11 @@
 import React, { Component } from "react"
 import styled from "styled-components"
+import theme from "../../../Styles/theme.js"
 
 class Product extends Component {
+  priceWithComma = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
   render() {
     return (
       <ProductContainer>
@@ -27,8 +31,21 @@ class Product extends Component {
                 <span className="accommodationDesc">{product.description}</span>
               </div>
               <div className="productsContentsInfoBox">
-                <Span>{product.rate}</Span>
-                <Span>{product.price}</Span>
+                <div className="rateContainer">
+                  <img
+                    alt=""
+                    src="https://dffoxz5he03rp.cloudfront.net/icons/ic_ratingstar_14x14_filled_blue_400.svg"
+                  />
+                  <Span>{product.rate}</Span>
+                  <span>(17)</span>
+                </div>
+                <div className="priceContainer">
+                  <span className="lowerPrice">1박최저</span>
+                  <span className="accommodationPrice">
+                    {this.priceWithComma(product.price)}
+                  </span>
+                  <span className="accommodationPriceName">원</span>
+                </div>
               </div>
             </ProductContents>
           </AccommodationContents>
@@ -41,9 +58,6 @@ class Product extends Component {
 export default Product
 
 const ProductContainer = styled.div`
-  position: absolute;
-  top: 100px;
-  left: 960px;
   width: 770px;
 
   .filterContainer {
@@ -53,7 +67,7 @@ const ProductContainer = styled.div`
 
     .filters {
       display: flex;
-      font-size: 13px;
+      font-size: ${theme.fontSize.small};
 
       li {
         margin: 5px;
@@ -107,13 +121,29 @@ const ProductContents = styled.div`
   .productsContentsInfoBox {
     display: flex;
     justify-content: space-between;
-    .accommodationRate {
-      font-size: 14px;
+
+    .rateContainer {
+      img {
+        margin-right: 5px;
+      }
+      .accommodationRate {
+        font-size: 14px;
+      }
     }
 
-    .accommodationPrice {
-      font-size: 20px;
-      font-weight: bold;
+    .priceContainer {
+      .lowerPrice {
+        color: gray;
+        font-size: 13px;
+      }
+
+      .accommodationPrice {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .accommodationPriceName {
+      }
     }
   }
 `

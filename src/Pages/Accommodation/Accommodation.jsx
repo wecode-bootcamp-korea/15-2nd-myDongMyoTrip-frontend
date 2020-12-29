@@ -52,11 +52,13 @@ class Accommodation extends Component {
       <AccommodationContainer>
         <SearchBar />
         {this.state.date}
-        <LeftSideBar
-          themeArr={this.state.themeArr}
-          sideFilterArr={this.state.sideFilterArr}
-        />
-        <Product productsArr={this.state.productArr} />
+        <div className="flexContainer">
+          <LeftSideBar
+            themeArr={this.state.themeArr}
+            sideFilterArr={this.state.sideFilterArr}
+          />
+          <Product productsArr={this.state.productArr} />
+        </div>
       </AccommodationContainer>
     )
   }
@@ -68,4 +70,9 @@ const AccommodationContainer = styled.div`
   display: block;
   width: 1060px;
   margin: 0 auto;
+
+  .flexContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 `
