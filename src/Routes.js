@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Accommodation from "../src/Pages/Accommodation";
-import Airline from "../src/Pages/Airline";
-import Login from "../src/Pages/Login";
-import SignUp from "../src/Pages/SignUp";
-import Main from "../src/Pages/Main";
+import Accommodation from "./Pages/Accommodation/Accommodation";
+import Airline from "./Pages/Airline/Airline";
+import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/SignUp/SignUp";
+import Main from "./Pages/Main/Main";
 
 class Routes extends React.Component {
   render() {

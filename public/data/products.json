@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468",
+      "name": "[한림/게하] 아는언니집 #여성전용",
+      "description": "한림읍 여성 호스트가 직접 운영하는 여성전용 게스트하우스 ",
+      "rate": 4.5,
+      "price": 24000
+    },
+    {
+      "id": 2,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468",
+      "accommodationName": "[한림/게하]",
+      "accommodationDesc": "한림읍 여성 호스트가 직접 운영하는 여성전용 게스트하우스 ",
+      "rate": 4.5,
+      "price": 24000
+    },
+    {
+      "id": 3,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468",
+      "accommodationName": "[한림/게하] 아는언니집 #여성전용",
+      "accommodationDesc": "한림읍 여성 호스트가 직접 운영하는 여성전용 게스트하우스 ",
+      "rate": 4.5,
+      "price": 24000
+    },
+    {
+      "id": 4,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468",
+      "accommodationName": "[한림/게하]",
+      "accommodationDesc": "한림읍 여성 호스트가 직접 운영하는 여성전용 게스트하우스 ",
+      "rate": 4.5,
+      "price": 24000
+    },
+    {
+      "id": 5,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468",
+      "accommodationName": "[한림/게하]",
+      "accommodationDesc": "한림읍 여성 호스트가 직접 운영하는 여성전용 게스트하우스 ",
+      "rate": 4.5,
+      "price": 24000
+    }
+  ]
+}
