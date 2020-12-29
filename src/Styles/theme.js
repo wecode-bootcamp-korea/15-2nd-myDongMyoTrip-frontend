@@ -1,6 +1,9 @@
+import { css } from "styled-components";
+
 const calcRem = (size) => `${size / 16}rem`;
 
 const fontSize = {
+  xs: calcRem(12),
   small: calcRem(14),
   medium: calcRem(16),
   large: calcRem(18),
@@ -37,9 +40,18 @@ const Color = {
   white: "#ffffff",
 };
 
+const CenterWrapper = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: ${(props) => props.width};
+  margin: 0 auto;
+`;
+
 const theme = {
   fontSize,
   Color,
+  CenterWrapper,
 };
 
 export default theme;

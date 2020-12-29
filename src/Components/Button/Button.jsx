@@ -1,15 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Circle = styled.div`
-  width: 5rem;
-  height: 5rem;
-  background: black;
-  border-radius: 50%;
+const GhostButton = styled.button`
+  padding: 10px 10px;
+  background-color: ${({ theme }) => theme.Color.white};
+  border-radius: 4px;
+  border: 1px solid ${(props) => props.color};
+  font-weight: 500;
+  color: ${(props) => props.color};
 `;
 
 function App() {
-  return <Circle />;
+  return <GhostButton />;
 }
 
 export default App;
