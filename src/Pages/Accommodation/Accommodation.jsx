@@ -5,7 +5,6 @@ import LeftSideBar from "./components/LeftSideBar"
 import SearchBar from "./components/SearchBar"
 import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
-import "./Accommodation.scss"
 import styled from "styled-components"
 
 class Accommodation extends Component {
@@ -50,22 +49,23 @@ class Accommodation extends Component {
 
   render() {
     return (
-      <div className="accommodation">
+      <AccommodationContainer>
         <SearchBar />
-        <div>{this.state.date}</div>
+        {this.state.date}
         <LeftSideBar
           themeArr={this.state.themeArr}
           sideFilterArr={this.state.sideFilterArr}
         />
         <Product productsArr={this.state.productArr} />
-        <Button>버튼 얍얍</Button>
-      </div>
+      </AccommodationContainer>
     )
   }
 }
 
 export default Accommodation
 
-const Button = styled.button`
-  background-color: red;
+const AccommodationContainer = styled.div`
+  display: block;
+  width: 1060px;
+  margin: 0 auto;
 `
