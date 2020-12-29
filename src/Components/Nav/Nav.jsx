@@ -57,11 +57,7 @@ const NavBar = styled.nav`
 `;
 
 const CenterWrapper = styled.section`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: ${(props) => props.width};
-  margin: 0 auto;
+  ${({ theme }) => theme.CenterWrapper}
 
   &.global {
     height: 72px;
