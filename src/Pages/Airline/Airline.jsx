@@ -1,10 +1,32 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import SearchArea from "../Airline/MainSearch/SearchArea";
+import RecentSearch from "../Airline/RecentSearch/RecentSearch";
+import SlideCard from "../Airline/SlideCard/SlideCard";
+import styled from "styled-components";
 
-class Airline extends Component {
+class Airline extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
-    return <div className="Airline">Airline</div>;
+    return (
+      <BodyWrapper>
+        <SearchArea />
+        <RecentSearch />
+        <SlideCard />
+      </BodyWrapper>
+    );
   }
 }
 
-export default Airline;
+export default withRouter(Airline);
+
+const BodyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`;
