@@ -46,6 +46,7 @@ const LeftSideBarContainer = styled.div`
     border: 1px solid lightgray;
     border-radius: 20px;
     font-size: 14px;
+    cursor: pointer;
 
     span {
       font-size: 15px;
@@ -89,13 +90,10 @@ const LeftSideBarContainer = styled.div`
       .leftSideCheckbox {
         width: 18px;
         height: 18px;
-        zoom: 1.5;
         border: 1px solid gray;
+        font-size: 14px;
+        zoom: 1.5;
       }
     }
   }
-`
-const Span = styled.span`
-  font-size: 20px;
-  font-weight: bold;
 `

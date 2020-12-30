@@ -67,11 +67,9 @@ class Accommodation extends Component {
 export default Accommodation
 
 const AccommodationContainer = styled.div`
-  display: block;
-  width: 1060px;
-  margin: 0 auto;
-
   .flexContainer {
+    width: 1060px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
   }

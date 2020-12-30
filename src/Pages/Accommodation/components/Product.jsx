@@ -3,15 +3,34 @@ import styled from "styled-components"
 import theme from "../../../Styles/theme.js"
 
 class Product extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isFilterClicked: false,
+    }
+  }
+
+  handleFilters = () => {
+    this.setState({
+      isFilterClicked: !this.state.isFilterClicked,
+    })
+  }
+
   priceWithComma = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   }
+
   render() {
     return (
       <ProductContainer>
         <div className="filterContainer">
           <Span>검색된 한인민박 {this.props.productsArr.length}개</Span>
-          <div className="filters">
+          <div
+            className={
+              this.state.isFilterClicked ? "clickedFilters" : "filters"
+            }
+            onClick={this.handleFilters}
+          >
             <li>인기순</li>
             <li>높은 평점순</li>
             <li>낮은 가격순</li>
@@ -63,15 +82,28 @@ const ProductContainer = styled.div`
   .filterContainer {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 24px;
+    padding-bottom: 10px;
+
+    .clickedFilters {
+      display: flex;
+      font-size: ${theme.fontSize.small};
+      font-weight: bold;
+
+      li {
+        margin: 10px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
 
     .filters {
       display: flex;
       font-size: ${theme.fontSize.small};
 
       li {
-        margin: 5px;
+        margin: 10px;
         font-size: 13px;
+        cursor: pointer;
       }
     }
   }
@@ -108,6 +140,7 @@ const ProductContents = styled.div`
   .productsContentsNameBox {
     display: flex;
     flex-direction: column;
+
     .accommodationName {
       font-size: 20px;
       font-weight: bold;

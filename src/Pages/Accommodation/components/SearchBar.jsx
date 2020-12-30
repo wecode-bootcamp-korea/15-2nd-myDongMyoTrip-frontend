@@ -49,9 +49,9 @@ class SearchBar extends Component {
     }월 ${endDate.getDate()}일 (${endKorDay})`
 
     return (
-      <div>
-        <SearchBarContainder>
-          <div className="searchBarBox">
+      <SearchBarContainder>
+        <div className="searchBarBox">
+          <div className="searchBarInnerBox">
             <div className="searchBarName">
               <h1>제주도</h1>
             </div>
@@ -61,49 +61,53 @@ class SearchBar extends Component {
                 {dateRange}
               </div>
               <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxNlYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iIzQ5NTA1NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik02IDRMMTAgOC4wMDIgNi4wMDUgMTIiIHRyYW5zZm9ybT0icm90YXRlKDkwIDggOCkiLz4KICAgIDwvZz4KPC9zdmc+Cg==" />
-            </div>
-            <div className={this.state.isCalanderOpen ? "block" : "none"}>
-              <DateRange
-                editableDateInputs={true}
-                onChange={this.onRangeChange}
-                moveRangeOnFirstSelection={false}
-                ranges={[this.state]}
-                months={2}
-                direction="column"
-              />
+              <div className={this.state.isCalanderOpen ? "block" : "none"}>
+                <DateRange
+                  editableDateInputs={true}
+                  onChange={this.onRangeChange}
+                  moveRangeOnFirstSelection={false}
+                  ranges={[this.state]}
+                  months={2}
+                  direction="column"
+                />
+              </div>
             </div>
             <div className="personBtn" onClick={this.handlePersonBtn}>
               <div>
                 <i className="fas fa-user-alt" />
-                성인 1명
+                <span>성인 1명</span>
               </div>
               <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgxNlYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iIzQ5NTA1NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik02IDRMMTAgOC4wMDIgNi4wMDUgMTIiIHRyYW5zZm9ybT0icm90YXRlKDkwIDggOCkiLz4KICAgIDwvZz4KPC9zdmc+Cg==" />
-            </div>
-            <div
-              className={this.state.isPersonBoxOpen ? "personBoxBlock" : "none"}
-            >
-              <div className="personBoxTitle">인원선택</div>
-              <div className="personInnerBox">
-                성인
-                <div className="personCircleBox">
-                  <CircleBtn>-</CircleBtn>
-                  {this.state.adultNum}
-                  <CircleBtn>+</CircleBtn>
+              <div
+                className={
+                  this.state.isPersonBoxOpen
+                    ? "personBoxBlock"
+                    : "personBoxNone"
+                }
+              >
+                <div className="personBoxTitle">인원선택</div>
+                <div className="personInnerBox">
+                  성인
+                  <div className="personCircleBox">
+                    <CircleBtn>-</CircleBtn>
+                    {this.state.adultNum}
+                    <CircleBtn>+</CircleBtn>
+                  </div>
                 </div>
-              </div>
-              <div className="personInnerBox">
-                어린이
-                <div className="personCircleBox">
-                  <CircleBtn>-</CircleBtn>
-                  {this.state.kidsNum}
-                  <CircleBtn>+</CircleBtn>
+                <div className="personInnerBox">
+                  어린이
+                  <div className="personCircleBox">
+                    <CircleBtn>-</CircleBtn>
+                    {this.state.kidsNum}
+                    <CircleBtn>+</CircleBtn>
+                  </div>
                 </div>
+                <Button>적용하기</Button>
               </div>
-              <Button>적용하기</Button>
             </div>
           </div>
-        </SearchBarContainder>
-      </div>
+        </div>
+      </SearchBarContainder>
     )
   }
 }
@@ -111,112 +115,116 @@ class SearchBar extends Component {
 export default SearchBar
 
 const SearchBarContainder = styled.div`
-  display: block;
-  margin: auto 0;
+  border: 1px solid lightgray;
   margin-bottom: 50px;
-  width: 1060px;
-  height: 72px;
-  padding: 12px;
+  box-shadow: 1px 5px 22px 0px rgba(0, 0, 0, 0.11);
 
   .searchBarBox {
-    display: flex;
-    justify-content: space-evenly;
+    display: block;
+    margin: 0 auto;
+    width: 1060px;
+    height: 72px;
+    padding: 12px;
 
-    .searchBarName {
-      width: 200px;
-      height: 48px;
-      margin-right: 80px;
-      padding: 12px;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .calanderBtn {
+    .searchBarInnerBox {
       display: flex;
-      justify-content: space-between
-      width: 530px;
-      height: 48px;
-      margin-right: 20px;
-      padding: 12px;
-      font-size: 20px;
-      border-radius: 5px;
-      background-color: #f5f6f7;
-      cursor: pointer;
+      justify-content: space-evenly;
 
-      .fa-calendar-alt {
-        margin-right: 10px;
+      .searchBarName {
+        width: 200px;
+        height: 60px;
+        margin-right: 80px;
+        padding: 12px;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .calanderBtn {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        width: 530px;
+        height: 50px;
+        margin-right: 20px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        background-color: #f5f6f7;
+        cursor: pointer;
+
+        .fa-calendar-alt {
+          margin-right: 10px;
+        }
+
+        .block {
+          display: block;
+          position: absolute;
+          top: 50px;
+          width: 300px;
+          height: 300px;
+          background-color: white;
+          z-index: 1;
+        }
+
+        .none {
+          display: none;
+        }
       }
     }
 
-    .block {
-      display: block;
-      position: absolute;
-      top: 190px;
-      left: 960px;
-      width: 300px;
-      height: 300px;
-      background-color: white;
-      z-index: 1;
-    }
-
-    .none {
-      display: none;
-    }
-
     .personBtn {
+      position: relative;
       display: flex;
-      justify-content: space-between
+      justify-content: space-between;
       width: 230px;
-      height: 48px;
+      height: 50px;
       padding: 12px;
       border-radius: 5px;
       background-color: #f5f6f7;
-      font-size: 20px;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
 
       .fa-user-alt {
         margin-right: 10px;
       }
-    }
 
-    .personBox {
-      position: relative;
-      width: 300px;
-      height: 180px;
-      background-color: white;
-    }
+      .personBoxBlock {
+        display: block;
+        position: absolute;
+        width: 320px;
+        height: 270px;
+        top: 50px;
+        padding: 20px;
+        color: gray;
+        background-color: white;
+        border: 1px solid whitesmoke;
+        box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.11);
+        z-index: 1;
 
-    .personBoxBlock {
-      display: block;
-      position: absolute;
-      width: 400px;
-      height: 280px;
-      top: 190px;
-      right: 610px;
-      padding: 20px;
-      color: gray;
-      background-color: white;
-      border: 1px solid whitesmoke;
-      box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.11);
-      z-index: 1;
-
-      .personBoxTitle {
-        margin-bottom: 20px;
-        font-size: 20px;
-        font-weight: bold;
-      }
-
-      .personInnerBox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-        font-size: 20px;
-
-        .personCircleBox {
-          display: flex;
-          align-items: center;
+        .personBoxTitle {
+          margin-bottom: 20px;
+          font-size: 16px;
+          font-weight: bold;
         }
+
+        .personInnerBox {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+          font-size: 16px;
+          font-weight: bold;
+
+          .personCircleBox {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+      .personBoxNone {
+        display: none;
       }
     }
   }
@@ -226,10 +234,10 @@ const Button = styled.button`
   position: absolute;
   bottom: 30px;
   right: 30px;
-  width: 100px;
+  width: 90px;
   height: 40px;
-  padding: 10px;
-  font-size: 18px;
+  padding: 5px;
+  font-size: 16px;
   border: none;
   border-radius: 5px;
   color: white;
