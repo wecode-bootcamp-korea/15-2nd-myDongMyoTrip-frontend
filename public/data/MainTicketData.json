@@ -1,0 +1,94 @@
+{
+  "domestic": [
+    {
+      "id": 0,
+      "name": "제주도",
+      "location": "서울 - 제주",
+      "date": "2월 15일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 1,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2016/01/13/01/36/bagan-1137015_1280.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 2,
+      "name": "제주도",
+      "location": "서울 - 제주",
+      "date": "2월 13일 - 2월 15일",
+      "src": "https://cdn.pixabay.com/photo/2017/03/27/14/49/beach-2179183_1280.jpg",
+      "alt": "destination",
+      "price": "38,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 3,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2018/07/16/16/08/island-3542290_1280.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 4,
+      "name": "군산",
+      "location": "서울 - 군산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2016/02/19/11/36/canal-1209808_1280.jpg",
+      "alt": "destination",
+      "price": "62,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 5,
+      "name": "제주도",
+      "location": "서울 - 제주도",
+      "date": "2월 12일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2016/10/10/14/44/train-1728537_1280.jpg",
+      "alt": "destination",
+      "price": "59,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 6,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2016/11/30/15/00/lighthouse-1872998_1280.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 7,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2014/11/15/23/30/yellow-mountains-532857_1280.jpg",
+      "alt": "destination",
+      "price": "40,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 8,
+      "name": "제주도",
+      "location": "서울 - 제주도",
+      "date": "2월 15일 - 2월 17일",
+      "src": "https://cdn.pixabay.com/photo/2018/01/04/00/19/mountains-3059528_1280.jpg",
+      "alt": "destination",
+      "price": "33,900원 ~",
+      "trip": "직항"
+    }
+  ]
+}

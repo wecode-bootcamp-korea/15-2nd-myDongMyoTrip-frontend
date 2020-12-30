@@ -16,7 +16,7 @@ export default function SignIn() {
     Kakao.Auth.login({
       success: function (authObj) {
         console.log("kakao", authObj);
-        fetch(KAKAO_API, {
+        fetch(`${KAKAO_API}`, {
           method: "POST",
           headers: {
             Authorization: authObj.access_token,
@@ -27,12 +27,14 @@ export default function SignIn() {
             localStorage.setItem("access_token", res.access_token);
             if (res.access_token) {
               alert("로그인 성공!");
-              history.push("/");
+              window.location.href = "/";
             }
           });
       },
       fail: function (err) {
+        alert("로그인 실패!");
         console.log("err", err);
+        window.location.href = "/";
       },
     });
   };

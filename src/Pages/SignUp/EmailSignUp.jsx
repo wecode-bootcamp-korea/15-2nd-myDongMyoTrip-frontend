@@ -129,13 +129,17 @@ class EmailSignUp extends Component {
       .then((response) => {
         if (response.message === "SUCCESS") {
           alert("회원가입을 축하드립니다!");
-          this.props.history.push("/login");
+          this.props.history.push("/");
+        } else {
+          alert("실패!!");
+          this.props.history.push("/");
         }
       });
   };
   /*-- 회원가입 button click function End--*/
 
   render() {
+    console.log(this.state.isPromotionAgreed);
     const { agree } = this.state;
     const { clickTerms } = this;
     const agreeAll = agree[0] && agree[1] && agree[2] && agree[3];

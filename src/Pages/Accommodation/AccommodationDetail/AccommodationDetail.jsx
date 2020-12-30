@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import useReactRouter from "use-react-router"
-import { useRouteMatch } from "react-router"
-import theme from "../../../Styles/theme.js"
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import theme from "../../../Styles/theme.js";
+import SearchBar from "../components/SearchBar";
+import MainImage from "./MainImage";
+import RoomList from "./RoomList";
+import Review from "./Review";
+import Modal from "./Modal";
 
-import SearchBar from "../components/SearchBar"
-import MainImage from "./MainImage"
-import RoomList from "./RoomList"
-// import RightSideBar from "./RightSideBar"
-import Review from "./Review"
-import Modal from "./Modal"
-
-import * as config from "../../../config"
+import * as config from "../../../config";
 
 import {
   pointArr,
@@ -19,48 +15,47 @@ import {
   infoArr,
   moreInfoArr,
   cancelArr,
-} from "./detailPageData"
+} from "./detailPageData";
 
 function AccommodationDetail(props) {
-  const [detailProductArr, setDetailProductArr] = useState({})
-  const [isChooseRoomBtnClicked, setIsChooseRoomBtnClicked] = useState(false)
-  const [isAvailableBtnClicked, setIsAvailableBtnClicked] = useState(false)
-  const [isReadMoreBtnClicked, setIsReadMoreBtnClicked] = useState(false)
+  const [detailProductArr, setDetailProductArr] = useState({});
+  const [isChooseRoomBtnClicked, setIsChooseRoomBtnClicked] = useState(false);
+  const [isAvailableBtnClicked, setIsAvailableBtnClicked] = useState(false);
+  const [isReadMoreBtnClicked, setIsReadMoreBtnClicked] = useState(false);
 
   useEffect(() => {
-    getDetailProducts()
-  }, [])
+    getDetailProducts();
+  });
 
   const getDetailProducts = () => {
     fetch(`${config.ACCOMMODATION_DETAIL_API}/${props.match.params.id}`)
       .then((response) => response.json())
-      .then((response) => setDetailProductArr(response.accommodation_detail))
-  }
+      .then((response) => setDetailProductArr(response.accommodation_detail));
+  };
 
   const handleChooseRoom = () => {
-    setIsChooseRoomBtnClicked(!isChooseRoomBtnClicked)
-  }
+    setIsChooseRoomBtnClicked(!isChooseRoomBtnClicked);
+  };
 
   const handleAvailableBtn = () => {
-    setIsAvailableBtnClicked(!isAvailableBtnClicked)
-  }
+    setIsAvailableBtnClicked(!isAvailableBtnClicked);
+  };
 
   const handleisMoreBtn = () => {
-    setIsReadMoreBtnClicked(!isReadMoreBtnClicked)
-  }
+    setIsReadMoreBtnClicked(!isReadMoreBtnClicked);
+  };
 
   const {
     name,
     description,
-    review,
     free_service,
     shared_facility,
     roomtype,
     image_url,
-  } = detailProductArr
+  } = detailProductArr;
 
   //detailProductArr.name값이 트루이면(===빈객체이면) <div>를 return하도록,
-  if (!detailProductArr.name) return <div>loading...</div>
+  if (!detailProductArr.name) return <div>loading...</div>;
   return (
     <>
       <MainImage detailProductArr={image_url} />
@@ -72,6 +67,7 @@ function AccommodationDetail(props) {
               <a
                 href="https://www.google.com/maps/place/33%C2%B026'45.9%22N+126%C2%B017'42.5%22E"
                 target="_blank"
+                rel="noreferrer"
               >
                 <MapBtn>
                   <i className="far fa-map" />
@@ -95,7 +91,7 @@ function AccommodationDetail(props) {
             <FreeMealTag>무료조식</FreeMealTag>
             <NoticeBox>
               <NoticeTitleBox>
-                <i class="fas fa-info-circle" />
+                <i className="fas fa-info-circle" />
                 <h2>필독사항</h2>
               </NoticeTitleBox>
               <p>
@@ -240,16 +236,16 @@ function AccommodationDetail(props) {
         />
       </AccommodationDetailWrapper>
     </>
-  )
+  );
 }
 
-export default AccommodationDetail
+export default AccommodationDetail;
 
 const shareProperties = styled.div`
   padding-top: 40px;
   padding-bottom: 40px;
   border-top: 1px solid whitesmoke;
-`
+`;
 
 const AccommodationDetailWrapper = styled.div`
   display: flex;
@@ -266,13 +262,13 @@ const AccommodationDetailWrapper = styled.div`
     margin-right: 5px;
     color: #3297ed;
   }
-`
+`;
 
 const InfoBox = styled.div`
   width: 700px;
 
   margin-top: 80px;
-`
+`;
 
 const AccommodationNameBox = styled.div`
   display: flex;
@@ -280,7 +276,7 @@ const AccommodationNameBox = styled.div`
   padding: 5px 8px;
   font-size: 15px;
   line-height: 130%;
-`
+`;
 
 const MapBtn = styled.button`
   all: unset;
@@ -293,14 +289,14 @@ const MapBtn = styled.button`
   span {
     font-size: ${theme.fontSize.small};
   }
-`
+`;
 
 const AccommodationDescBox = styled.div`
   display: block;
   padding: 5px 8px;
   color: ${theme.Color.grey[200]};
   line-height: 130%;
-`
+`;
 const RateBox = styled.div`
   display: block;
   padding: 5px 8px;
@@ -315,7 +311,7 @@ const RateBox = styled.div`
     margin-left: 3px;
     font-size: ${theme.fontSize.small};
   }
-`
+`;
 
 const FreeMealTag = styled.div`
   width: 55px;
@@ -325,7 +321,7 @@ const FreeMealTag = styled.div`
   font-size: ${theme.fontSize.xs};
   font-weight: 500;
   background-color: ${theme.Color.grey[200]};
-`
+`;
 
 const NoticeBox = styled.div`
   padding: 16px;
@@ -351,12 +347,12 @@ const NoticeBox = styled.div`
     font-size: 15px;
     font-weight: 300;
   }
-`
+`;
 
 const NoticeTitleBox = styled.div`
   display: flex;
   align-items: baseline;
-`
+`;
 
 const DetailChooseBox = styled.div`
   margin-bottom: 48px;
@@ -367,60 +363,58 @@ const DetailChooseBox = styled.div`
     font-size: 24px;
     font-weight: bold;
   }
-`
+`;
 
 const AvailableRoomBtninnerBox = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 10px;
-`
+`;
 
 const AvailableRoomBtnBox = styled.div`
   padding: ${(props) => (props.border === "solid" ? "16px" : "5px 8px")};
   font-size: 15px;
 
+  .onRoomAvailableBtn {
+    position: relative;
+    width: 45px;
+    height: 25px;
+    margin-left: 5px;
+    border-radius: 50px;
+    background-color: ${theme.Color.blue[200]};
+    cursor: pointer;
 
-    .onRoomAvailableBtn {
-      position: relative;
-      width: 45px;
-      height: 25px;
-      margin-left: 5px;
-      border-radius: 50px;
-      background-color: ${theme.Color.blue[200]};
-      cursor: pointer;
-
-      .circleBtn {
-        position: absolute;
-        left: 22px;
-        top: 2px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: white;
-      }
+    .circleBtn {
+      position: absolute;
+      left: 22px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: white;
     }
+  }
 
-    .roomAvailableBtn {
-      position: relative;
-      width: 45px;
-      height: 25px;
-      margin-left: 5px;
-      border: 1px solid lightgrey;
-      border-radius: 50px;
-      background-color: lightgrey;
-      cursor: pointer;
+  .roomAvailableBtn {
+    position: relative;
+    width: 45px;
+    height: 25px;
+    margin-left: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+    background-color: lightgrey;
+    cursor: pointer;
 
-      .circleBtn {
-        position: absolute;
-        left: 1px;
-        top: 1px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: white;
-        /* z-index: 10; */
-      }
+    .circleBtn {
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: white;
+      /* z-index: 10; */
     }
   }
 
@@ -437,7 +431,7 @@ const AvailableRoomBtnBox = styled.div`
   .fa-caret-down {
     margin-left: 5px;
   }
-`
+`;
 
 const PointBox = styled(shareProperties)`
   h3 {
@@ -453,7 +447,7 @@ const PointBox = styled(shareProperties)`
     font-size: 15px;
     color: rgb(73, 80, 86);
   }
-`
+`;
 const CheckInOutBox = styled(shareProperties)`
   display: flex;
   align-items: center;
@@ -467,7 +461,7 @@ const CheckInOutBox = styled(shareProperties)`
     transform: rotate(12deg);
     background: rgb(222, 226, 230);
   }
-`
+`;
 
 const SubTitle = styled.span`
   display: block;
@@ -476,11 +470,11 @@ const SubTitle = styled.span`
   font-size: ${(props) => (props.name === "time" ? "24px" : "16px")};
   font-weight: ${(props) => (props.name === "time" ? "300" : "bold")};
   color: rgb(73, 80, 86);
-`
+`;
 
-const MealNoticeBox = styled(shareProperties)``
+const MealNoticeBox = styled(shareProperties)``;
 
-const RulesBox = styled(shareProperties)``
+const RulesBox = styled(shareProperties)``;
 
 const IntroduceBox = styled(shareProperties)`
   position: relative;
@@ -492,7 +486,7 @@ const IntroduceBox = styled(shareProperties)`
   .none {
     display: none;
   }
-`
+`;
 
 const Table = styled(shareProperties)`
   tbody {
@@ -523,13 +517,13 @@ const Table = styled(shareProperties)`
       }
     }
   }
-`
+`;
 const Li = styled.li`
   margin-bottom: 5px;
   font-size: 15px;
   font-weight: 400;
   list-style: ${(props) => (props.name === "cancel" ? "none" : "")};
-`
+`;
 
 const IntroduceHideBox = styled.div`
   display: ${(props) => (props.name === "none" ? "none" : "")};
@@ -538,7 +532,7 @@ const IntroduceHideBox = styled.div`
   width: 700px;
   height: 130px;
   background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
-`
+`;
 
 const IntroduceHideButton = styled.button`
   display: ${(props) => (props.name === "none" ? "none" : "")};
@@ -553,13 +547,13 @@ const IntroduceHideButton = styled.button`
   background-color: white;
   font-weight: bold;
   cursor: pointer;
-`
+`;
 
-const ReviewBox = styled(shareProperties)``
+const ReviewBox = styled(shareProperties)``;
 
 const CancelInfoBox = styled(shareProperties)`
   border-bottom: 1px solid whitesmoke;
-`
+`;
 
 // const DetailBox = styled.div`
 //   display: ${(props) => (props.name === "checkInOut" ? "flex" : "")};
