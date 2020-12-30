@@ -4,3 +4,5 @@ export const SIGNUP_API = "http://192.168.0.62:8000";
 export const LOGIN_API = "http://192.168.0.62:8000";
 export const KAKAO_API = "http://192.168.0.62:8000/user/sign-in/kakao";
 export const LoginApi = "http://192.168.0.62:8000/user/sign-in";
+export const ACCOMMODATION_DETAIL_API = 'http://192.168.0.46:8000/accommodation'
+export const ACCOMMODATION_LIST_API = 'http://192.168.0.46:8000/accommodation/list'
