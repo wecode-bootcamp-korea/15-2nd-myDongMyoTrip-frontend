@@ -1,14 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
-const footerList = [1, 2, 3];
-const footerValue = [
-  ["소개", "파트너", "지원"],
-  ["회사소개", "파트너 등록하기", "자주 묻는 질문"],
-  ["채용", "Affiliate 프로그램", "최저가 보장제"],
-  ["공고", "리얼가이드", ""],
-  ["", "가이드 블로그", ""],
-];
 class Footer extends Component {
   render() {
     return (
@@ -77,8 +68,17 @@ class Footer extends Component {
 
 export default Footer;
 
-/*--styled-components--*/
+/*--states--*/
+const footerList = [1, 2, 3];
+const footerValue = [
+  ["소개", "파트너", "지원"],
+  ["회사소개", "파트너 등록하기", "자주 묻는 질문"],
+  ["채용", "Affiliate 프로그램", "최저가 보장제"],
+  ["공고", "리얼가이드", ""],
+  ["", "가이드 블로그", ""],
+];
 
+/*--styled-components--*/
 const FooterContainer = styled.footer`
   bottom: 0;
   background-color: ${({ theme }) => theme.Color.white};
