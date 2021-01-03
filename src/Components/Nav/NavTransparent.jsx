@@ -5,6 +5,11 @@ class Nav extends Component {
   render() {
     return (
       <NavBar>
+        <img
+          className="mainNavPic"
+          src="images/haiinkim/airMainNav.jpg"
+          alt="mainNavImg"
+        />
         <CenterWrapper width="1060px" className="global">
           <Wrapper>
             <Logo>
@@ -51,10 +56,23 @@ export default Nav;
 const NavBar = styled.nav`
   background-color: transparent;
   border-bottom: 1px solid ${({ theme }) => theme.Color.grey[200]};
+  z-index: 10;
+
+  .mainNavPic {
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 350px;
+    opacity: 0.7;
+  }
 `;
 
 const CenterWrapper = styled.section`
-  ${({ theme }) => theme.CenterWrapper}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: ${(props) => props.width};
+  margin: 0 auto;
 
   &.global {
     height: 72px;
@@ -114,11 +132,11 @@ const List = styled.ul`
   justify-content: center;
 
   &.global {
-    color: ${({ theme }) => theme.Color.grey[600]};
+    color: ${({ theme }) => theme.Color.white};
   }
 
   &.local {
-    color: ${({ theme }) => theme.Color.grey[800]};
+    color: ${({ theme }) => theme.Color.white};
     font-weight: 500;
     margin-bottom: 10px;
 

@@ -1,0 +1,94 @@
+{
+  "domestic": [
+    {
+      "id": 0,
+      "name": "제주도",
+      "location": "서울 - 제주",
+      "date": "2월 15일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 1,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 2,
+      "name": "제주도",
+      "location": "서울 - 제주",
+      "date": "2월 13일 - 2월 15일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "38,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 3,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 4,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "62,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 5,
+      "name": "제주도",
+      "location": "서울 - 제주도",
+      "date": "2월 12일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "59,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 6,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "24,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 7,
+      "name": "부산",
+      "location": "서울 - 부산",
+      "date": "2월 16일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "40,900원 ~",
+      "trip": "직항"
+    },
+    {
+      "id": 8,
+      "name": "제주도",
+      "location": "서울 - 제주도",
+      "date": "2월 15일 - 2월 17일",
+      "src": "images/haiinkim/gongyou.jpg",
+      "alt": "destination",
+      "price": "33,900원 ~",
+      "trip": "직항"
+    }
+  ]
+}
