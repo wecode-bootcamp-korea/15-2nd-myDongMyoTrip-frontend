@@ -4,8 +4,8 @@ import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Accommodation from "./Pages/Accommodation/Accommodation";
 import Airline from "./Pages/Airline/Airline";
-import Login from "./Pages/Login/Login";
-import SignUp from "./Pages/SignUp/SignUp";
+import EmailSignIn from "./Pages/SignIn/EmailSignIn";
+import EmailSignUp from "./Pages/SignUp/EmailSignUp";
 import Main from "./Pages/Main/Main";
 
 class Routes extends React.Component {
@@ -17,8 +17,8 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/accommodation" component={Accommodation} />
           <Route exact path="/airline" component={Airline} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/email-signin" component={EmailSignIn} />
+          <Route exact path="/email-signup" component={EmailSignUp} />
         </Switch>
         <Footer />
       </Router>
