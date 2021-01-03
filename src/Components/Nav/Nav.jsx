@@ -13,7 +13,7 @@ class Nav extends Component {
               </Link>
             </Logo>
             <SearchBar>
-              <i class="fas fa-search"></i>
+              <i className="fas fa-search"></i>
               <input
                 type="search"
                 placeholder="도시나 상품을 검색해보세요"
