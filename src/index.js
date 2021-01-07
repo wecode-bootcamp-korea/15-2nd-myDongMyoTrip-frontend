@@ -4,6 +4,8 @@ import Routes from "../src/Routes";
 import { ThemeProvider } from "styled-components";
 import theme from "./Styles/theme";
 import GlobalStyle from "./Styles/globalStyles";
+import "../src/Pages/Airline/SlideCard/SlideCard";
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,25 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "항공사",
+      "airports": [
+        { "id": 1, "name": "해인항공", "checked": true },
+        { "id": 2, "name": "에어하영", "checked": true },
+        { "id": 3, "name": "미현항공", "checked": true },
+        { "id": 4, "name": "에어혁준", "checked": true },
+        { "id": 5, "name": "폭곰에어", "checked": true }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "좌석종류",
+      "airports": [
+        { "id": 12, "name": "비즈니스석", "checked": true },
+        { "id": 13, "name": "특가석", "checked": true },
+        { "id": 14, "name": "할인석", "checked": true },
+        { "id": 15, "name": "일반석", "checked": true }
+      ]
+    }
+  ]
+}
