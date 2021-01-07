@@ -1,0 +1,54 @@
+{
+  "detail": [
+    {
+      "id": 1,
+      "name": "6인실 여성 도미토리",
+      "min": 1,
+      "max": 6,
+      "bedType": "2층침대",
+      "bedNum": 2,
+      "minReservation": 1,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/11/05/9ofM/tUHSmOBEm0.jpg?height=96"
+    },
+    {
+      "id": 2,
+      "name": "6인실 여성 도미토리",
+      "min": 1,
+      "max": 6,
+      "bedType": "2층침대",
+      "bedNum": 2,
+      "minReservation": 1,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/11/05/9ofM/tUHSmOBEm0.jpg?height=96"
+    },
+    {
+      "id": 3,
+      "name": "6인실 여성 도미토리",
+      "min": 1,
+      "max": 6,
+      "bedType": "2층침대",
+      "bedNum": 2,
+      "minReservation": 1,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/11/05/9ofM/tUHSmOBEm0.jpg?height=96"
+    },
+    {
+      "id": 4,
+      "name": "6인실 여성 도미토리",
+      "min": 1,
+      "max": 6,
+      "bedType": "2층침대",
+      "bedNum": 2,
+      "minReservation": 1,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/11/05/9ofM/tUHSmOBEm0.jpg?height=96"
+    },
+    {
+      "id": 5,
+      "name": "6인실 여성 도미토리",
+      "min": 1,
+      "max": 6,
+      "bedType": "2층침대",
+      "bedNum": 2,
+      "minReservation": 1,
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/11/05/9ofM/tUHSmOBEm0.jpg?height=96"
+    }
+  ]
+}

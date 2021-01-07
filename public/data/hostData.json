@@ -1,0 +1,19 @@
+{
+  "hosts": [
+    {
+      "id": 1,
+      "name": "아는언니",
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468"
+    },
+    {
+      "id": 2,
+      "name": "아는언니",
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468"
+    },
+    {
+      "id": 3,
+      "name": "아는언니",
+      "src": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2020/10/30/T6Um/emsd8zD1JD.jpg?height=468"
+    }
+  ]
+}
