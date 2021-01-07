@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import App from "../../Components/Button/Button";
+import App from "../../Components/Button/GhostButton";
 
 class Main extends Component {
   render() {

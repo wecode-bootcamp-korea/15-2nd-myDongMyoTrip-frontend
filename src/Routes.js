@@ -5,14 +5,19 @@ import NavTransparent from "./Components/Nav/NavTransparent";
 import Footer from "./Components/Footer/Footer";
 import Accommodation from "./Pages/Accommodation/Accommodation";
 import Airline from "./Pages/Airline/Airline";
-import Login from "./Pages/Login/Login";
-import SignUp from "./Pages/SignUp/SignUp";
+import EmailSignIn from "./Pages/SignIn/EmailSignIn";
+import EmailSignUp from "./Pages/SignUp/EmailSignUp";
 import Main from "./Pages/Main/Main";
 import AirlineList from "./Pages/Airline/AirlineList/AirlineList";
 import AirlineListSelected from "./Pages/Airline/AirlineList/AirlineListSelected";
+import SignIn from "./Pages/SignIn/SignIn";
 
 const AIRLINE_NAV = ["/", "/Airline1"];
-const ShowAirlineNav = AIRLINE_NAV.includes(window.location.pathname) ? <NavTransparent /> : <Nav /> 
+const ShowAirlineNav = AIRLINE_NAV.includes(window.location.pathname) ? (
+  <NavTransparent />
+) : (
+  <Nav />
+);
 
 class Routes extends React.Component {
   render() {
@@ -24,9 +29,14 @@ class Routes extends React.Component {
           <Route exact path="/accommodation" component={Accommodation} />
           <Route exact path="/Airline1" component={Airline} />
           <Route exact path="/airlineList" component={AirlineList} />
-          <Route exact path="/airlineListSelected" component={AirlineListSelected} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route
+            exact
+            path="/airlineListSelected"
+            component={AirlineListSelected}
+          />
+          <Route exact path="/signup" component={SignIn} />
+          <Route exact path="/email-signin" component={EmailSignIn} />
+          <Route exact path="/email-signup" component={EmailSignUp} />
         </Switch>
         <Footer />
       </Router>

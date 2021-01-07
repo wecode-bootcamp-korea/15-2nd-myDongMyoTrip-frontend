@@ -1,1 +1,22 @@
-ahhahaahhh
+{
+  "User": [
+    {
+      "id": 1,
+      "name": "kim",
+      "email": "cccccc@naver.com",
+      "password": "qwert123456789"
+    },
+    {
+      "id": 2,
+      "name": "choi",
+      "email": "aaaaaa@naver.com",
+      "password": "qwert123456789"
+    },
+    {
+      "id": 3,
+      "name": "lee",
+      "email": "bbbbbb@naver.com",
+      "password": "qwert123456789"
+    }
+  ]
+}

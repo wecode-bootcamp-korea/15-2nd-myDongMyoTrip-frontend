@@ -118,6 +118,7 @@ body {
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
   line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 ol,
