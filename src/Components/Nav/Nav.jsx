@@ -1,43 +1,87 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { NavLink, withRouter } from "react-router-dom";
+import styled, { css } from "styled-components";
+
 class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuth: false,
+      onLogin: this.onLogin,
+      onLogout: this.onLogout,
+    };
+  }
+
+  logoutUser = () => {
+    localStorage.removeItem("access_token");
+    window.location.href = "/";
+  };
+
   render() {
+    const { transparent } = this.props;
     return (
-      <NavBar>
+      <NavBar transparent={transparent}>
         <CenterWrapper width="1060px" className="global">
           <Wrapper>
             <Logo>
-              <Link to="/">
+              <NavLink
+                to="/"
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              >
                 <img alt="main_logo" src="./images/main_logo.svg" />
-              </Link>
+              </NavLink>
             </Logo>
-            <SearchBar>
-              <i className="fas fa-search"></i>
-              <input
-                type="search"
-                placeholder="도시나 상품을 검색해보세요"
-              ></input>
+            <SearchBar transparent={transparent}>
+              <i className="fas fa-search" />
+              <input type="search" placeholder="도시나 상품을 검색해보세요" />
             </SearchBar>
           </Wrapper>
-          <List className="global">
-            <li>위시리스트</li>
-            <li>예약내역</li>
-            <li>메시지</li>
-            <li>알림</li>
-            <li>
-              <Profile
-                className="profileThumbnail"
-                alt="profile_thumbnail"
-                src="./images/nav_default_thumbnail.png"
-              />
-            </li>
+          <List className="global" transparent={transparent}>
+            {!localStorage.getItem("access_token") ? (
+              <li
+                onClick={() => {
+                  window.location.href = "/signin";
+                }}
+              >
+                로그인
+              </li>
+            ) : null}
+            {!localStorage.getItem("access_token") ? (
+              <GhostButton
+                transparent={transparent}
+                onClick={() => {
+                  window.location.href = "/signup";
+                }}
+              >
+                회원가입
+              </GhostButton>
+            ) : (
+              <GhostButton transparent={transparent} onClick={this.logoutUser}>
+                로그아웃
+              </GhostButton>
+            )}
           </List>
         </CenterWrapper>
         <CenterWrapper width="1060px" className="local">
-          <List className="local">
-            <li>항공권</li>
-            <li>숙소</li>
+          <List className="local" transparent={transparent}>
+            <NavLink
+              to="/Airline1"
+              onClick={() => {
+                window.location.href = "/Airline1";
+              }}
+            >
+              <li>항공권</li>
+            </NavLink>
+            <NavLink
+              to="/accommodation_main"
+              onClick={() => {
+                window.location.href = "/accommodation_main";
+              }}
+            >
+              <li>숙소</li>
+            </NavLink>
             <li>렌터카·교통</li>
             <li>투어·티켓</li>
           </List>
@@ -47,17 +91,27 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 /*--styled-components--*/
 
 const NavBar = styled.nav`
   background-color: transparent;
   border-bottom: 1px solid ${({ theme }) => theme.Color.grey[200]};
+  z-index: 3;
+  ${(props) =>
+    props.transparent &&
+    css`
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    `}
 `;
 
 const CenterWrapper = styled.section`
-  ${({ theme }) => theme.CenterWrapper}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: ${(props) => props.width};
+  margin: 0 auto;
 
   &.global {
     height: 72px;
@@ -92,6 +146,11 @@ const SearchBar = styled.div`
     left: 16px;
     transform: translateY(-50%);
     color: ${({ theme }) => theme.Color.grey[500]};
+    ${(props) =>
+      props.transparent &&
+      css`
+        color: white;
+      `}
   }
 
   input {
@@ -99,6 +158,11 @@ const SearchBar = styled.div`
     height: 100%;
     padding: 0 16px 0 48px;
     background-color: ${({ theme }) => theme.Color.grey[100]};
+    ${(props) =>
+      props.transparent &&
+      css`
+        background-color: rgba(255, 255, 255, 0.2);
+      `}
     border: 0;
     border-radius: 4px;
     font-size: ${({ theme }) => theme.fontSize.medium};
@@ -106,6 +170,11 @@ const SearchBar = styled.div`
 
     &::placeholder {
       color: ${({ theme }) => theme.Color.grey[500]};
+      ${(props) =>
+        props.transparent &&
+        css`
+          color: white;
+        `}
     }
   }
 `;
@@ -118,15 +187,41 @@ const List = styled.ul`
 
   &.global {
     color: ${({ theme }) => theme.Color.grey[600]};
+    a {
+      ${(props) =>
+        props.transparent &&
+        css`
+          color: white;
+        `}
+    }
+    li {
+      ${(props) =>
+        props.transparent &&
+        css`
+          color: white;
+        `}
+    }
   }
 
   &.local {
-    color: ${({ theme }) => theme.Color.grey[800]};
+    color: ${({ theme }) => theme.Color.grey[600]};
+    ${(props) =>
+      props.transparent &&
+      css`
+        color: white;
+      `}
     font-weight: 500;
     margin-bottom: 10px;
-
-    li {
-      margin: 0 20px;
+    a {
+      color: ${({ theme }) => theme.Color.grey[600]};
+      ${(props) =>
+        props.transparent &&
+        css`
+          color: white;
+        `}
+      li {
+        margin: 0 10px;
+      }
     }
   }
 
@@ -149,4 +244,32 @@ const Profile = styled.img`
   height: 36px;
   border-radius: 50%;
   border: 1px solid ${({ theme }) => theme.Color.grey[300]};
+`;
+
+const GhostButton = styled.button`
+  margin: 5px 0 0 10px;
+  padding: 10px 30px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  border: 2px solid ${({ theme }) => theme.Color.blue[400]};
+  ${(props) =>
+    props.transparent &&
+    css`
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    `}
+  font-size: ${({ theme }) => theme.fontSize.medium};
+  font-weight: 500;
+  color: ${({ theme }) => theme.Color.blue[400]};
+  ${(props) =>
+    props.transparent &&
+    css`
+      color: white;
+    `}
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 `;

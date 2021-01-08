@@ -1,78 +1,65 @@
-import React, { useEffect, useState } from "react"
-import { DateRange } from "react-date-range"
-import { addDays } from "date-fns"
+import React, { useEffect, useState } from "react";
+import { DateRange } from "react-date-range";
+import { addDays } from "date-fns";
 // import locales from "react-date-range/dist/locale"
-import styled from "styled-components"
-import theme from "../../../Styles/theme.js"
+import styled from "styled-components";
+import theme from "../../../Styles/theme.js";
 
 function SearchBar() {
-  const [isCalanderOpen, setIsCalanderOpen] = useState(false)
-  const [isPersonBoxOpen, setIsPersonBoxOpen] = useState(false)
-  const [adultNum, setAdultNum] = useState(1)
-  const [kidsNum, setKidsNum] = useState(0)
-
-  // 함수 합쳐보자
-  // const [number, setNumber] = useState([
-  //   { id: 1, name: "성인", count: 1 },
-  //   { id: 2, name: "어린이", count: 0 },
-  // ])
-  // const handleInrement = (num) => {
-  // const numbers = [...number]
-  // const index = numbers.indexOf(num)
-  // number[index].count + 1
-  // setNumber(number)
-  // }
-
+  const [isCalanderOpen, setIsCalanderOpen] = useState(false);
+  const [isPersonBoxOpen, setIsPersonBoxOpen] = useState(false);
+  const [adultNum, setAdultNum] = useState(1);
+  const [kidsNum, setKidsNum] = useState(0);
   const [state, setState] = useState([
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 1),
       key: "selection",
     },
-  ])
+  ]);
 
   const handleAdultInrement = () => {
-    setAdultNum(adultNum + 1)
-  }
+    setAdultNum(adultNum + 1);
+  };
 
   const handleAdultDecrement = () => {
-    setAdultNum(adultNum < 2 ? 1 : adultNum - 1 && adultNum - 1)
-  }
+    setAdultNum(adultNum < 2 ? 1 : adultNum - 1 && adultNum - 1);
+  };
 
   const handleKidInrement = () => {
-    setKidsNum(kidsNum + 1)
-  }
+    setKidsNum(kidsNum + 1);
+  };
 
   const handleKidDecrement = () => {
-    setKidsNum(kidsNum < 1 ? 0 : kidsNum - 1 && kidsNum - 1)
-  }
+    setKidsNum(kidsNum < 1 ? 0 : kidsNum - 1 && kidsNum - 1);
+  };
 
   const handleCalanderBtn = () => {
-    setIsCalanderOpen(!isCalanderOpen)
-  }
+    setIsCalanderOpen(!isCalanderOpen);
+  };
 
   const handlePersonBtn = () => {
-    setIsPersonBoxOpen(!isPersonBoxOpen)
-  }
+    setIsPersonBoxOpen(!isPersonBoxOpen);
+  };
 
-  const newStart = state[0].startDate
-  const newEnd = state[0].endDate
-  const week = ["일", "월", "화", "수", "목", "금", "토"]
-  const startKorDay = week[newStart.getDay()]
-  const endKorDay = week[newEnd.getDay()]
+  const newStart = state[0].startDate;
+  const newEnd = state[0].endDate;
+  const week = ["일", "월", "화", "수", "목", "금", "토"];
+  const startKorDay = week[newStart.getDay()];
+  const endKorDay = week[newEnd.getDay()];
 
   const dateRange = `${
     newStart.getMonth() + 1
   }월  ${newStart.getDate()}일 (${startKorDay}) - ${
     newEnd.getMonth() + 1
-  }월 ${newEnd.getDate()}일 (${endKorDay})`
+  }월 ${newEnd.getDate()}일 (${endKorDay})`;
 
   return (
     <SearchBarContainder name="searchBarBox">
       <div className="searchBarInnerBox">
         <BigButton name="calander" onClick={handleCalanderBtn}>
           <div>
-            <i class="fas fa-calendar" />
+            <i className="fas fa-calendar" />
             {dateRange}
           </div>
           <i className="fas fa-caret-down" />
@@ -119,10 +106,10 @@ function SearchBar() {
         </Div>
       </div>
     </SearchBarContainder>
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;
 
 const SearchBarContainder = styled.div`
   display: block;
@@ -139,7 +126,7 @@ const SearchBarContainder = styled.div`
       margin-right: 10px;
     }
   }
-`
+`;
 const BigButton = styled.div`
   position: relative;
   display: flex;
@@ -164,7 +151,7 @@ const BigButton = styled.div`
   .fa-user-alt {
     margin-right: 10px;
   }
-`
+`;
 const Button = styled.button`
   position: absolute;
   bottom: 30px;
@@ -176,7 +163,7 @@ const Button = styled.button`
   border-radius: 5px;
   color: white;
   background-color: #2b96ed;
-`
+`;
 
 const CircleBtn = styled.button`
   font-size: 2rem;
@@ -187,7 +174,7 @@ const CircleBtn = styled.button`
   background-color: white;
   border: 1px solid lightblue;
   border-radius: 50%;
-`
+`;
 const Div = styled.div`
   display: ${(props) => (props.display ? "block" : "none")};
   position: absolute;
@@ -220,4 +207,4 @@ const Div = styled.div`
       align-items: center;
     }
   }
-`
+`;

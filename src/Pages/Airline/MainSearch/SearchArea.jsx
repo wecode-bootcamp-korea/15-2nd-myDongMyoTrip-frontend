@@ -24,6 +24,11 @@ function SearchArea() {
           <SearchButton />
         </Link>
       </SearchBar>
+      <img
+        className="mainNavPic"
+        src="images/haiinkim/airMainNav.jpg"
+        alt="mainNavImg"
+      />
     </SearchType>
   );
 }
@@ -53,6 +58,16 @@ const SearchType = styled.div`
       border-bottom: 3px solid ${({ theme }) => theme.Color.white};
       font-weight: 500;
     }
+  }
+
+  .mainNavPic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 350px;
+    opacity: 0.7;
   }
 `;
 
