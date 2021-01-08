@@ -2,13 +2,39 @@ import React, { useEffect, useState } from "react"
 
 import Form from "./Form"
 
-function Modal({ detailProductArr, ChooseRoom }) {
+function Modal({
+  getName,
+  getPrice,
+  btnId,
+  roomBtnIdArr,
+  roomtype,
+  detailProductArr,
+  ChooseRoom,
+}) {
   return (
     <div>
       {ChooseRoom ? (
-        <Form detailProductArr={detailProductArr} format={CHOOSEPROPS} />
+        <Form
+          getPrice={getPrice}
+          getName={getName}
+          // btnId={btnId}
+          // roomBtnIdArr={roomBtnIdArr}
+          detailProductArr={detailProductArr}
+          format={CHOOSEPROPS}
+          ChooseRoom={ChooseRoom}
+          roomtype={roomtype}
+        />
       ) : (
-        <Form detailProductArr={detailProductArr} format={RESERVEPROPS} />
+        <Form
+          getPrice={getPrice}
+          getName={getName}
+          // btnId={btnId}
+          // roomBtnIdArr={roomBtnIdArr}
+          detailProductArr={detailProductArr}
+          format={RESERVEPROPS}
+          ChooseRoom={ChooseRoom}
+          roomtype={roomtype}
+        />
       )}
     </div>
   )

@@ -91,6 +91,7 @@ const AccommodationListBox = styled.div`
   display: flex;
   margin-bottom: 16px;
   border: 1px solid lightgray;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.48);

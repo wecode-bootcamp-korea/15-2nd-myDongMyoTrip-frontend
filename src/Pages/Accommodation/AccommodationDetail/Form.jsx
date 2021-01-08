@@ -3,7 +3,17 @@ import styled from "styled-components"
 
 import FormLayout from "./FormLayout"
 
-function Form({ format, detailProductArr }) {
+function Form({
+  getPrice,
+  getName,
+  btnId,
+  roomBtnIdArr,
+  roomBtnId,
+  roomtype,
+  ChooseRoom,
+  format,
+  detailProductArr,
+}) {
   const [likeBtn, setLikeBtn] = useState(false)
   let [likePerson, setLikePerson] = useState(20)
 
@@ -14,17 +24,21 @@ function Form({ format, detailProductArr }) {
       setLikePerson(20)
     }
   }
+  const purePrice = Number(getPrice).toLocaleString()
 
   return (
     <FormLayout detailProductArr={detailProductArr}>
       {format && format.type === "reservation" && (
         <>
           <>
-            <Roomtype>복층커플룸</Roomtype>
+            <Roomtype>{getName}</Roomtype>
+            {/* {roomtype.map((room) => (
+              <Roomtype>{room.id === btnId && room.name}</Roomtype>
+            ))} */}
             <InnerUpBox>
               <Font>기준2명</Font>
               <>
-                <Font>116,000원</Font>
+                <Font>{purePrice}원</Font>
               </>
             </InnerUpBox>
           </>
@@ -32,11 +46,9 @@ function Form({ format, detailProductArr }) {
             <Font>총 금액</Font>
             <div>
               <Font>1박</Font>
-              <SecondSpan>116,000원</SecondSpan>
+              <SecondSpan>{purePrice}원</SecondSpan>
             </div>
           </InnerDwonBox>
-          {/* {detailProductArr &&
-            detailProductArr.roomtype.map((room) => <span>{room.price}</span>)} */}
         </>
       )}
       {format &&
@@ -50,8 +62,10 @@ function Form({ format, detailProductArr }) {
             <span>{a.text}</span>
           </Button>
         ))}
-
-      <p>{format.text}</p>
+      <WishBox>
+        {format.type === "choose" && likePerson}
+        {format.text}
+      </WishBox>
     </FormLayout>
   )
 }
@@ -68,6 +82,21 @@ const Button = styled.button`
   border: 1px solid whitesmoke;
   border-radius: 5px;
   cursor: pointer;
+
+  .fa-heart {
+    margin-right: 5px;
+  }
+
+  .full {
+    margin-right: 5px;
+    color: red;
+  }
+`
+
+const WishBox = styled.p`
+  font-size: 12px;
+  color: grey;
+  text-align: center;
 `
 
 const InnerUpBox = styled.div`
