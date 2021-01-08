@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
-import { Flight_ULR_GMP_CJC } from "../../../config";
-import SearchListCards from "./SearchListCards";
+import { Flight_ULR_CJC_GMP } from "../../../config";
+import SearchListB from "./SearchListB";
 import SideFilter from "../AirlineList/SideFilter";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import styled from "styled-components";
@@ -19,7 +19,7 @@ function AirlineList() {
 
   const getList = () => {
     axios
-      .get(Flight_ULR_GMP_CJC)
+      .get(Flight_ULR_CJC_GMP)
       .then((res) => getsearchListCards(res.data.flight_list));
   };
 
@@ -28,22 +28,21 @@ function AirlineList() {
     setOptionValue(optionValue);
     if (optionValue === "출발 시간 빠른 순") {
       const res = await axios.get(
-        "http://192.168.0.62:8000/flight?order=1&departure_airport=3&arrival_airport=1&departure_date=2021-01-25&arrival_date=2021-01-25"
+        "http://192.168.0.62:8000/flight?order=1&departure_airport=1&arrival_airport=3&departure_date=2021-01-30&arrival_date=2021-01-30"
       );
       getsearchListCards(res.data.flight_list);
     } else if (optionValue === "출발 시간 늦은 순") {
       const res = await axios.get(
-        "http://192.168.0.62:8000/flight?order=2&departure_airport=3&arrival_airport=1&departure_date=2021-01-25&arrival_date=2021-01-25"
+        "http://192.168.0.62:8000/flight?order=2&departure_airport=1&arrival_airport=3&departure_date=2021-01-30&arrival_date=2021-01-30"
       );
       getsearchListCards(res.data.flight_list);
     } else if (optionValue === "가격 낮은 순") {
       const res = await axios.get(
-        "http://192.168.0.62:8000/flight?order=0&departure_airport=3&arrival_airport=1&departure_date=2021-01-25&arrival_date=2021-01-25"
+        "http://192.168.0.62:8000/flight?order=0&departure_airport=1&arrival_airport=3&departure_date=2021-01-30&arrival_date=2021-01-30"
       );
       getsearchListCards(res.data.flight_list);
     }
   }
-
   return (
     <>
       {loadingStatus && (
@@ -62,7 +61,7 @@ function AirlineList() {
               <input type="text" placeholder="제주(CJC)" />
             </CitySelector>
             <DateSelector>
-              <input type="text" placeholder="2021.01.25" />
+              <input type="text" placeholder="2021.01.30" />
               <button>
                 <i class="fas fa-arrows-alt-h" />
               </button>
@@ -81,10 +80,50 @@ function AirlineList() {
             </SeatSelector>
           </Selectors>
         </Layer>
+        <SelectedCard>
+          <SideTitle>
+            <Box>가는편</Box>
+            <ArrDep>
+              <div>김포</div>
+              <div>-</div>
+              <div>제주</div>
+            </ArrDep>
+            <DepTime>
+              <div>01월025일(월)</div>
+            </DepTime>
+            <ListCard>
+              <Img src="images/haiinkim/haiinAir.png" alt="airlineImg" />
+              <AirlineName>
+                <div>해인항공</div>
+                <div>TW731</div>
+              </AirlineName>
+              <Time>
+                <TimeDetail>
+                  <div>06:00</div>
+                  <div>-</div>
+                  <div>08:00</div>
+                </TimeDetail>
+                <TimeLocation>
+                  <div>GMP</div>
+                  <div>CJU</div>
+                </TimeLocation>
+              </Time>
+              <Seat>
+                <div>일반석</div>
+              </Seat>
+              <SeatNum>
+                <div>9석</div>
+              </SeatNum>
+              <Total>
+                <div>9900</div>
+              </Total>
+            </ListCard>
+          </SideTitle>
+        </SelectedCard>
         <Background>
           <LoadingView>
             <form>
-              <SideFilter searchListCardsA={searchListCards} />
+              <SideFilter />
             </form>
             <TicketList>
               <SearchListTitle>
@@ -103,7 +142,7 @@ function AirlineList() {
                   </option>
                 </select>
               </SearchListTitle>
-              <SearchListCards searchListCardsA={searchListCards} />
+              <SearchListB searchListB={searchListCards} />
             </TicketList>
           </LoadingView>
         </Background>
@@ -251,6 +290,160 @@ const SeatTitle = styled.div`
       color: ${({ theme }) => theme.Color.grey[700]};
     }
   }
+`;
+
+const ListCard = styled.li`
+  width: 785px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  margin-left: 15px;
+
+  span {
+    margin-right: 15px;
+  }
+`;
+
+const Img = styled.img`
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+`;
+
+const AirlineName = styled.div`
+  width: 94px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  div {
+    font-size: 13px;
+  }
+
+  div:first-child {
+    margin-bottom: 3px;
+  }
+`;
+
+const Time = styled.span`
+  width: 180px;
+  height: 40px;
+  margin-right: 40px;
+`;
+
+const TimeDetail = styled.span`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const TimeLocation = styled.span`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6px;
+
+  div {
+    font-size: 14px;
+    color: ${({ theme }) => theme.Color.grey[600]};
+    margin-top: 3px;
+  }
+`;
+
+const Seat = styled.span`
+  width: 87px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+
+  div {
+    font-size: 14px;
+    color: ${({ theme }) => theme.Color.grey[700]};
+  }
+`;
+
+const SeatNum = styled.span`
+  width: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+
+  div {
+    font-size: 14px;
+    color: ${({ theme }) => theme.Color.grey[700]};
+  }
+`;
+
+const Total = styled.span`
+  width: 110px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+
+  div {
+    font-size: 22px;
+    font-weight: 500;
+  }
+`;
+
+const SelectedCard = styled.div`
+  width: 100vw;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.Color.grey[100]};
+  border-radius: 3px;
+`;
+
+const SideTitle = styled.div`
+  width: 1064px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: white;
+  margin-top: 30px;
+`;
+
+const Box = styled.div`
+  width: 40px;
+  height: 20px;
+  background-color: ${({ theme }) => theme.Color.blue[500]};
+  border: 1px solid ${({ theme }) => theme.Color.blue[500]};
+  border-radius: 3px;
+  padding-left: 3px;
+  padding-top: 1px;
+  margin-right: 10px;
+  color: white;
+  font-size: 12px;
+`;
+
+const ArrDep = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 15px;
+`;
+
+const DepTime = styled.div`
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 600;
 `;
 
 const Background = styled.div`

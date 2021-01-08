@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import AirCalendar from "../Modal/AirlineCalendar/AirCalendar";
 import CityModal from "../Modal/CityModal";
 import SeatModal from "../Modal/SeatModal";
-import { Flight_ULR } from "../../../config";
 import moment from "moment";
 import "moment/locale/ko";
 import styled from "styled-components";
@@ -36,7 +35,6 @@ class MainSearch extends React.Component {
       arrPlace: "",
       startDate: "",
       endDate: "",
-      data: [],
     };
   }
 
@@ -63,13 +61,6 @@ class MainSearch extends React.Component {
     });
     this.showModal("city");
   };
-
-  // handleArrValue = (e) => {
-  //   this.setState({
-  //     arrPlace: e.target.innerText,
-  //   });
-  //   this.showModal("city");
-  // };
 
   DecreasePassNum = (id) => {
     const stateName = PASS_TYPE[id];
@@ -108,42 +99,6 @@ class MainSearch extends React.Component {
     }
   };
 
-  getFlightData = () => {
-    fetch(Flight_ULR)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        this.setState({
-          data: res.flight_list,
-        });
-      });
-  };
-
-  // getQueryString(key) {
-  //   let str = Flight_ULR;
-  //   let index = str.indexOf("?") + 1;
-  //   let lastIndex = str.indexOf("#") > -1 ? str.indexOf("#") + 1 : str.length;
-  //   if (str === 0) {
-  //     return "";
-  //   }
-  //   str = str.substring(index, lastIndex);
-  //   str = str.split("&");
-
-  //   let rst = "";
-  //   for (let i = 0; i < str.length; i++) {
-  //     let arr = str[i].split("=");
-
-  //     if (arr.length != 2) {
-  //       break;
-  //     }
-  //     if (arr[0] == key) {
-  //       rst = arr[1];
-  //       break;
-  //     }
-  //   }
-  //   return rst;
-  // }
-
   handleIncreaseState = (id) => {
     const { adult, child, infant } = this.state;
     const increaseState = {
@@ -164,7 +119,6 @@ class MainSearch extends React.Component {
       adult,
       child,
       infant,
-      data,
     } = this.state;
 
     return (
