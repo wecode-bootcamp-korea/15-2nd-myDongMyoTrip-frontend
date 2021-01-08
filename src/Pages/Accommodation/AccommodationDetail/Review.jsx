@@ -20,10 +20,10 @@ function Review({ detailProductArr }) {
       <ReviewPrevBox>
         <PrevLeftBox>
           <PrevLeftInnerBox>
-            <Rate>
+            {/* <Rate>
               {detailProductArr.review &&
                 detailProductArr.review[0].star_rating.slice(0, 3)}
-            </Rate>
+            </Rate> */}
             <div>
               <i className="fas fa-star" />
               <i className="fas fa-star" />
@@ -118,7 +118,9 @@ function Review({ detailProductArr }) {
                 <i className="fas fa-star-half-alt" />
                 <Id>{review.user_name}</Id>
               </>
-              <UserInfo>20대/친구와함께여행/{review.created_at}</UserInfo>
+              <UserInfo>
+                20대/친구와함께여행/{review.created_at.slice(0, 10)}
+              </UserInfo>
             </>
             <ReviewInnerBox>
               <p>{review.context}</p>
@@ -297,7 +299,7 @@ const Id = styled.span`
 const UserInfo = styled.span`
   display: block;
   margin-bottom: 10px;
-  color: ${theme.Color.grey[300]};
+  color: ${theme.Color.grey[400]};
   font-size: 13px;
 `
 

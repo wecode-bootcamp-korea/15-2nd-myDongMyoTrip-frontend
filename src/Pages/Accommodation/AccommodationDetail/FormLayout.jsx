@@ -3,8 +3,6 @@ import styled from "styled-components"
 
 function FormLayout(props) {
   const [scrollTop, setScrollTop] = useState(0)
-  const [likeBtn, setLikeBtn] = useState(false)
-  // let [likePerson, setLikePerson] = useState(20)
 
   useEffect(() => {
     window.addEventListener("scroll", handleOnScroll)
@@ -25,7 +23,10 @@ function FormLayout(props) {
             <img alt="host image" src={props.detailProductArr.host.image_url} />
             <HostName>{props.detailProductArr.host.name}</HostName>
           </HostInfoInnerBox>
-          <span>문의하기</span>
+          <div>
+            <i className="far fa-envelope" />
+            <AskToHost>문의하기</AskToHost>
+          </div>
         </HostInfoBox>
         <img
           className="coupon"
@@ -49,8 +50,8 @@ const Wrapper = styled.div`
 
 const RightSideBox = styled.div`
   position: ${(props) => (props.name === "fixed" ? "fixed" : "")};
-  top: ${(props) => (props.name === "fixed" ? "32px" : "")};
-  right: ${(props) => (props.name === "fixed" ? "422px" : "")};
+  top: ${(props) => (props.name === "fixed" ? "35px" : "")};
+  right: ${(props) => (props.name === "fixed" ? "180px" : "")};
   width: 320px;
 `
 
@@ -75,11 +76,18 @@ const HostInfoBox = styled.div`
   border: 1px solid lightgray;
   border-radius: 0 0 5px 5px;
 
-  span {
-    font-size: 15px;
-    text-align: center;
-    font-weight: bold;
+  .fa-envelope {
+    color: #3397ed;
+    margin-right: 5px;
   }
+`
+
+const AskToHost = styled.span`
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #3397ed;
+  cursor: pointer;
 `
 const HostInfoInnerBox = styled.div`
   display: flex;

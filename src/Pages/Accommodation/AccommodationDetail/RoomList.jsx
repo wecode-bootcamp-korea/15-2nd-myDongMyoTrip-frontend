@@ -2,19 +2,23 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import theme from "../../../Styles/theme.js"
 
-function RoomList({ productArr, ChooseRoom }) {
+function RoomList({ ChooseRoom, getPrice, getValue, productArr, id }) {
   const {
     name,
     price,
     minimum,
     maximum,
-    room_type_amenity,
     number_of_bed,
     minimum_reservation,
     image,
   } = productArr
 
   const purePrice = Number(price).toLocaleString()
+  const checkValue = () => {
+    ChooseRoom()
+    getValue(name)
+    getPrice(price)
+  }
 
   return (
     <Wrap>
@@ -35,7 +39,20 @@ function RoomList({ productArr, ChooseRoom }) {
           <Span>1박 최저</Span>
           <Price>{purePrice}</Price>
         </div>
-        <Button onClick={ChooseRoom}>선택</Button>
+        <Button
+          id={id}
+          onClick={
+            // (() => {
+            //   handleChooseRoom()
+            // },
+            () => {
+              checkValue()
+            }
+            // )
+          }
+        >
+          선택
+        </Button>
       </SmallDiv>
     </Wrap>
   )
@@ -52,9 +69,10 @@ const Wrap = styled.div`
   padding: 14px;
   border: 1px solid lightgray;
   border-radius: 10px;
-  box-shadow: 11px 13px 8px -8px rgba(0,0,0,0.29);
+  /* box-shadow: 11px 13px 8px -8px rgba(0,0,0,0.29); */
  
-  &:hover { 
+  &:hover {
+    box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.48);
   }
 
     img {
