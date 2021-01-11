@@ -251,8 +251,6 @@ function AccommodationDetail(props) {
         <Modal
           getName={getName}
           getPrice={getPrice}
-          btnId={btnId}
-          roomBtnIdArr={roomBtnIdArr}
           roomtype={roomtype}
           detailProductArr={detailProductArr}
           ChooseRoom={isChooseRoomBtnClicked}

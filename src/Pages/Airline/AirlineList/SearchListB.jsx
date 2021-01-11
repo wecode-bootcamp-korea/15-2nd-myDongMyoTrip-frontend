@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Flight_ULR } from "../../../config";
+import { Flight_ULR_CJC_GMP } from "../../../config";
 import axios from "axios";
 import styled from "styled-components";
 
-function SearchListCards({ searchListCardsA }) {
+function SearchListCards({ searchListB }) {
   return (
     <ListCards>
-      {searchListCardsA &&
-        searchListCardsA.map((res, index) => {
+      {searchListB &&
+        searchListB.map((res, index) => {
           return (
             <ListCard key={index}>
               <Img src={res.airline_logo_url} alt="airlineImg" />
@@ -69,7 +69,7 @@ const ListCard = styled.li`
   margin-bottom: 10px;
 
   :hover {
-    box-shadow: 0px 0px 5px 10px #eeee;
+    box-shadow: 0px 0px 20px #bdbdbd;
   }
 
   span {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-function SideFilter() {
+function SideFilter({ searchListCardsA }) {
   const [checkboxList, getCheckboxList] = useState([]);
   const [checkedState, setChecked] = useState({
     check1: true,

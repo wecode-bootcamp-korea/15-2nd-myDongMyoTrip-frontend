@@ -3,17 +3,7 @@ import styled from "styled-components"
 
 import FormLayout from "./FormLayout"
 
-function Form({
-  getPrice,
-  getName,
-  btnId,
-  roomBtnIdArr,
-  roomBtnId,
-  roomtype,
-  ChooseRoom,
-  format,
-  detailProductArr,
-}) {
+function Form({ getPrice, getName, format, detailProductArr }) {
   const [likeBtn, setLikeBtn] = useState(false)
   let [likePerson, setLikePerson] = useState(20)
 
@@ -32,9 +22,6 @@ function Form({
         <>
           <>
             <Roomtype>{getName}</Roomtype>
-            {/* {roomtype.map((room) => (
-              <Roomtype>{room.id === btnId && room.name}</Roomtype>
-            ))} */}
             <InnerUpBox>
               <Font>기준2명</Font>
               <>
