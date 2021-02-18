@@ -3,14 +3,22 @@ import { withRouter } from "react-router-dom";
 import ArrTable from "./ArrTable";
 import styled from "styled-components";
 
-const CityModal = ({ showModal, depPlace, handleDepValue }) => {
+const CityModal = ({
+  arrival,
+  departure,
+  showModal,
+  onClickToCancel,
+  arrPlace,
+  depPlace,
+  handleDepValue,
+}) => {
   return (
     <>
       <ModalLayer />
-      <CitySearchModal>
+      <CitySearchModal arrival={arrival} departure={departure}>
         <div className="modalTitle">
           <h4>도시 선택</h4>
-          <button onClick={() => showModal("city")}>
+          <button onClick={onClickToCancel}>
             <i class="fas fa-times" />
           </button>
         </div>
@@ -21,7 +29,13 @@ const CityModal = ({ showModal, depPlace, handleDepValue }) => {
           </div>
           <h5>주요도시 바로 선택</h5>
           <CityArea>
-            <ArrTable depPlace={depPlace} handleDepValue={handleDepValue} />
+            <ArrTable
+              departure={departure}
+              arrival={arrival}
+              depPlace={depPlace}
+              arrPlace={arrPlace}
+              handleDepValue={handleDepValue}
+            />
           </CityArea>
         </ModalBox>
       </CitySearchModal>
@@ -47,7 +61,7 @@ const CitySearchModal = styled.div`
   border-radius: 3px;
   position: absolute;
   top: 300px;
-  left: 410px;
+  left: ${(props) => (props.arrival ? "410px" : "200px")};
   z-index: 90;
   background-color: white;
 

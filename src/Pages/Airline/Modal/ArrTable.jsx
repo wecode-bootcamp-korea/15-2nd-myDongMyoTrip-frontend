@@ -3,7 +3,14 @@ import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
-const ArrTable = ({ handleDepValue, handleArrValue }) => {
+const ArrTable = ({
+  departure,
+  arrival,
+  arrPlace,
+  depPlace,
+  handleDepValue,
+  handleArrValue,
+}) => {
   const [tableList, gettableList] = useState([]);
 
   useEffect(() => {
@@ -11,22 +18,31 @@ const ArrTable = ({ handleDepValue, handleArrValue }) => {
   }, []);
 
   const getCategory = () => {
-    axios.get("http://192.168.0.62:8000/flight/region-airport").then((res) => {
+    axios.get("/data/ArrivalTable.json").then((res) => {
       gettableList(res.data.regions);
     });
   };
 
+  const handleCityValue = (city) => {
+    if (departure) {
+      handleDepValue("dep", city);
+    } else {
+      handleDepValue("arr", city);
+    }
+  };
+
+  console.log(departure, arrival);
   return (
-    <ArrTableWrapper>
-      {tableList.map((location, index) => {
+    <ArrTableWrapper departure={departure} arrival={arrival}>
+      {tableList?.map((location, index) => {
         return (
           <Wrap key={index}>
             <Location>{location.name}</Location>
             <City>
               {location.airports.map((city, i) => {
                 return (
-                  <div onClick={handleDepValue}>
-                    {city.name}({city.code})
+                  <div key={i} onClick={() => handleCityValue(city.name)}>
+                    {city.name}
                   </div>
                 );
               })}
