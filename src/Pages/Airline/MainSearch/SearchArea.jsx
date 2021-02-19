@@ -1,64 +1,33 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import SearchType from "../Components/Search/SearchType";
 import MainSearch from "../MainSearch/MainSearch";
-import { SearchButton } from "../Components/AirlineButton";
+import SearchButton from "../Components/Btn/AirlineButton";
 import styled from "styled-components";
 
-function SearchArea() {
+function SearchArea({ history }) {
   return (
-    <SearchType>
-      <ul>
-        <li>
-          <Link>왕복</Link>
-        </li>
-        <li>
-          <Link>편도</Link>
-        </li>
-        <li>
-          <Link>다구간</Link>
-        </li>
-      </ul>
+    <SearchAreaWrapper>
+      <SearchType />
       <SearchBar>
         <MainSearch />
-        <Link to="/airlineList">
-          <SearchButton />
-        </Link>
+        <SearchButton onClickBtn={() => history.push("/airlineList")} />
       </SearchBar>
       <img
         className="mainNavPic"
         src="images/haiinkim/airMainNav.jpg"
         alt="mainNavImg"
       />
-    </SearchType>
+    </SearchAreaWrapper>
   );
 }
 
 export default withRouter(SearchArea);
 
-const SearchType = styled.div`
+const SearchAreaWrapper = styled.div`
   width: 1064px;
   height: 129px;
   margin: 48px 0;
-
-  ul {
-    display: flex;
-    justify-content: flex-start;
-
-    li {
-      width: 64px;
-      height: 30px;
-      text-align: center;
-      font-weight: 300;
-
-      a {
-        color: ${({ theme }) => theme.Color.white};
-      }
-    }
-    li:first-child {
-      border-bottom: 3px solid ${({ theme }) => theme.Color.white};
-      font-weight: 500;
-    }
-  }
 
   .mainNavPic {
     position: absolute;
@@ -72,9 +41,7 @@ const SearchType = styled.div`
 `;
 
 const SearchBar = styled.div`
-  width: 1064px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0;
 `;

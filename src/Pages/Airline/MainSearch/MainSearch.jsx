@@ -35,6 +35,8 @@ class MainSearch extends React.Component {
       arrPlace: "",
       startDate: "",
       endDate: "",
+      depModal: false,
+      arrModal: false,
     };
   }
 
@@ -48,18 +50,35 @@ class MainSearch extends React.Component {
     return modalStateObj[id];
   };
 
-  showModal = (id) => {
+  showModal = (id, type) => {
     const stateName = MODAL_NAME[id];
     this.setState({
       [stateName]: this.handleModalState(id),
     });
+    if (type === "dep") {
+      this.setState({
+        depModal: !this.state.depModal,
+      });
+    } else if (type === "arr") {
+      this.setState({
+        arrModal: !this.state.arrModal,
+      });
+    }
   };
 
-  handleDepValue = (e) => {
-    this.setState({
-      depPlace: e.target.innerText,
-    });
-    this.showModal("city");
+  handleDepValue = (type, city) => {
+    console.log(type, city);
+    if (type === "arr") {
+      this.setState({
+        arrPlace: city,
+        arrModal: !this.state.arrModal,
+      });
+    } else {
+      this.setState({
+        depPlace: city,
+        depModal: !this.state.depModal,
+      });
+    }
   };
 
   DecreasePassNum = (id) => {
@@ -114,6 +133,8 @@ class MainSearch extends React.Component {
       openSeatModal,
       openCityModal,
       openCalendarLayer,
+      depModal,
+      arrModal,
       arrPlace,
       depPlace,
       adult,
@@ -126,27 +147,38 @@ class MainSearch extends React.Component {
         <CitySelector>
           <input
             type="text"
+            id="departure"
             placeholder="김포(GMP)"
-            value={arrPlace}
-            onClick={() => this.showModal("city")}
+            value={depPlace}
+            onClick={() => this.showModal("city", "dep")}
           />
+          {depModal && (
+            <CityModal
+              departure
+              depPlace={depPlace}
+              handleDepValue={this.handleDepValue}
+              onClickToCancel={() => this.showModal("city", "dep")}
+            />
+          )}
           <button>
             <i class="fas fa-arrows-alt-h" />
           </button>
           <input
             type="text"
+            id="arrival"
             placeholder="도착지가 어디인가요?"
-            value={depPlace}
-            onClick={() => this.showModal("city")}
+            value={arrPlace}
+            onClick={() => this.showModal("city", "arr")}
           />
+          {arrModal && (
+            <CityModal
+              arrival
+              arrPlace={arrPlace}
+              handleDepValue={this.handleDepValue}
+              onClickToCancel={() => this.showModal("city", "arr")}
+            />
+          )}
         </CitySelector>
-        {openCityModal && (
-          <CityModal
-            depPlace={depPlace}
-            handleDepValue={this.handleDepValue}
-            showModal={this.showModal}
-          />
-        )}
         <div onClick={() => this.showModal("cal")}>
           <AirCalendar openCalendarLayer={openCalendarLayer} />
         </div>

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { Flight_ULR_GMP_CJC } from "../../../config";
 import SearchListCards from "./SearchListCards";
+import MainSearch from "../MainSearch/MainSearch";
+import SearchButton from "../Components/Btn/AirlineButton";
 import SideFilter from "../AirlineList/SideFilter";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import styled from "styled-components";
 
-function AirlineList() {
+function AirlineList({ history }) {
   const [searchListCards, getsearchListCards] = useState([]);
   const [optionValue, setOptionValue] = useState("가격 낮은 순");
   const [loadingStatus, setLoadingStatus] = useState(true);
@@ -51,36 +53,16 @@ function AirlineList() {
           <LoadingPage />
         </LoadingWrap>
       )}
-      <Wrapper>
-        <Layer>
-          <Selectors>
-            <CitySelector>
-              <input type="text" placeholder="김포(GMP)" />
-              <button>
-                <i class="fas fa-arrows-alt-h" />
-              </button>
-              <input type="text" placeholder="제주(CJC)" />
-            </CitySelector>
-            <DateSelector>
-              <input type="text" placeholder="2021.01.25" />
-              <button>
-                <i class="fas fa-arrows-alt-h" />
-              </button>
-              <input type="text" placeholder="2021.01.30" />
-            </DateSelector>
-            <SeatSelector>
-              <SeatTitle>
-                <div>
-                  <i class="far fa-user" />
-                  <span>승객 1명, 일반석</span>
-                </div>
-                <button>
-                  <i class="fas fa-chevron-down" />
-                </button>
-              </SeatTitle>
-            </SeatSelector>
-          </Selectors>
-        </Layer>
+      <AirlineListWrapper>
+        <BlueBG>
+          <SearchBar>
+            <MainSearch />
+            <SearchButton
+              whiteVer
+              onClickBtn={() => history.push("/airlineList")}
+            />
+          </SearchBar>
+        </BlueBG>
         <Background>
           <LoadingView>
             <form>
@@ -107,7 +89,7 @@ function AirlineList() {
             </TicketList>
           </LoadingView>
         </Background>
-      </Wrapper>
+      </AirlineListWrapper>
     </>
   );
 }
@@ -122,140 +104,31 @@ const LoadingWrap = styled.div`
   left: 0;
   z-index: 90;
 `;
-const Wrapper = styled.div`
+const AirlineListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-const Layer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const BlueBG = styled.div`
   width: 100vw;
   height: 90px;
+  display: flex;
+  justify-content: center;
   background-color: ${({ theme }) => theme.Color.blue[400]};
 `;
 
-const Selectors = styled.div`
+const SearchBar = styled.div`
   width: 1064px;
   display: flex;
   justify-content: space-between;
-
-  margin: 20px 0;
-`;
-
-const CitySelector = styled.div`
-  width: 422px;
-  height: 48px;
-  border: 1px solid ${({ theme }) => theme.Color.white};
-  border-radius: 3px;
-  background-color: ${({ theme }) => theme.Color.white};
-
-  input {
-    width: 190px;
-    height: 46px;
-    font-size: 16px;
-    font-weight: 600;
-    padding-left: 14px;
-    border: none;
-    color: ${({ theme }) => theme.Color.grey[500]};
-
-    :focus {
-      outline: none;
-    }
-
-    ::placeholder {
-      font-weight: 400;
-      color: ${({ theme }) => theme.Color.grey[500]};
-    }
-  }
-  button {
-    width: 32px;
-    height: 32px;
-    border: none;
-    color: ${({ theme }) => theme.Color.grey[600]};
-    background-color: ${({ theme }) => theme.Color.grey[100]};
-  }
-`;
-
-const DateSelector = styled.div`
-  width: 360px;
-  height: 48px;
-  border: 1px solid ${({ theme }) => theme.Color.white};
-  border-radius: 3px;
-  background-color: ${({ theme }) => theme.Color.white};
-
-  input {
-    width: 160px;
-    height: 46px;
-    font-size: 16px;
-    font-weight: 600;
-    padding-left: 14px;
-    border: none;
-    color: ${({ theme }) => theme.Color.grey[500]};
-
-    :focus {
-      outline: none;
-    }
-
-    ::placeholder {
-      font-weight: 400;
-      color: ${({ theme }) => theme.Color.grey[500]};
-    }
-  }
-  button {
-    width: 32px;
-    height: 32px;
-    border: none;
-    color: ${({ theme }) => theme.Color.grey[600]};
-    background-color: ${({ theme }) => theme.Color.grey[100]};
-  }
-`;
-
-const SeatSelector = styled.div`
-  width: 270px;
-  height: 48px;
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding: 0 14px;
-  border: 1px solid ${({ theme }) => theme.Color.white};
-  border-radius: 3px;
-  background-color: ${({ theme }) => theme.Color.white};
-`;
-
-const SeatTitle = styled.div`
-  width: 270px;
-  display: flex;
-  justify-content: space-between;
-
-  i {
-    font-size: 19px;
-    color: ${({ theme }) => theme.Color.blue[500]};
-  }
-
-  span {
-    padding-left: 14px;
-    font-size: 16px;
-    color: ${({ theme }) => theme.Color.grey[500]};
-  }
-
-  button {
-    border: none;
-    background-color: ${({ theme }) => theme.Color.white};
-
-    i {
-      font-size: 19px;
-      color: ${({ theme }) => theme.Color.grey[700]};
-    }
-  }
 `;
 
 const Background = styled.div`
   width: 100vw;
-  height: 3000px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   background-color: ${({ theme }) => theme.Color.grey[100]};
