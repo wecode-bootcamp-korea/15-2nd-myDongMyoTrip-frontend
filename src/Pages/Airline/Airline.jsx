@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import SearchArea from "../Airline/MainSearch/SearchArea";
 import RecentSearch from "../Airline/RecentSearch/RecentSearch";
 import SlideCard from "../Airline/SlideCard/SlideCard";
